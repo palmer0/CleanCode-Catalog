@@ -18,22 +18,13 @@ public class ProductListModel implements ProductListContract.Model {
 
   public ProductListModel(WeakReference<ProductListActivity> activity) {
     this.activity = activity;
-    //repository = new CatalogRepository();
     repository = CatalogRepository.getInstance();
   }
 
   @Override
   public List<CatalogItem> fetchProductListData(CatalogItem category) {
     Log.e(TAG, "fetchProductListData()");
-    //return repository.getItemList();
     return repository.getProductList(category.id);
-    //return CatalogRepository.getInstance().getProductList(category.id);
   }
 
-  /*
-  @Override
-  public CatalogItem fetchProductListData(String id) {
-    return repository.getItemMap().get(id);
-  }
-  */
 }

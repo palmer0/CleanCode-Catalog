@@ -22,8 +22,6 @@ public class ProductDetailActivity
 
   ProductDetailContract.Presenter presenter;
 
-  //private CatalogItem mItem;
-  //CatalogRepository repository = new CatalogRepository();
   private CollapsingToolbarLayout appBarLayout;
 
   @Override
@@ -40,15 +38,6 @@ public class ProductDetailActivity
     }
 
     appBarLayout = findViewById(R.id.toolbar_layout);
-
-    /*
-    mItem = repository.getItemMap().get(getArguments().getString(ARG_ITEM_ID));
-
-    CollapsingToolbarLayout appBarLayout = findViewById(R.id.toolbar_layout);
-    if (appBarLayout != null) {
-      appBarLayout.setTitle(mItem.content);
-    }
-    */
 
     // do the setup
     ProductDetailConfigurator.INSTANCE.configure(this);
@@ -77,12 +66,6 @@ public class ProductDetailActivity
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
     if (id == android.R.id.home) {
-      // This ID represents the Home or Up button. In the case of this
-      // activity, the Up button is shown. For
-      // more details, see the Navigation pattern on Android Design:
-      //
-      // http://developer.android.com/design/patterns/navigation.html#up-vs-back
-      //
       navigateUpTo(new Intent(this, ProductListActivity.class));
       return true;
     }

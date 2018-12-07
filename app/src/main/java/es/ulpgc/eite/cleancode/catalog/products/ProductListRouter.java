@@ -32,11 +32,5 @@ public class ProductListRouter {
     return category;
   }
 
-  /*
-  public String getDataFromCategoryListScreen() {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
-    String categoryId = mediator.getCategoryId();
-    return categoryId;
-  }
-  */
+
 }

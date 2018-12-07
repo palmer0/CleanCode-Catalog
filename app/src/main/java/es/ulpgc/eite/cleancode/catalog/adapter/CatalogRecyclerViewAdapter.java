@@ -14,60 +14,15 @@ import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
 public class CatalogRecyclerViewAdapter
     extends RecyclerView.Adapter<CatalogRecyclerViewAdapter.ViewHolder> {
 
-  //private final AppCompatActivity mParentActivity;
   private final List<CatalogItem> mValues;
   private final View.OnClickListener mOnClickListener;
-  //private final boolean mTwoPane;
 
-
-//  private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
-//
-//    @Override
-//    public void onClick(View view) {
-//      CatalogItem item = (CatalogItem) view.getTag();
-//
-//      Context context = view.getContext();
-//      //Intent intent = new Intent(context, CategoryDetailActivity.class);
-//      Intent intent = new Intent(context, ProductListActivity.class);
-//      //intent.putExtra(CategoryDetailFragment.ARG_ITEM_ID, item.id);
-//      intent.putExtra(ProductListActivity.ARG_ITEM_ID, item.id);
-//
-//      context.startActivity(intent);
-//
-//      /*
-//      if (mTwoPane) {
-//        Bundle arguments = new Bundle();
-//        arguments.putString(CategoryDetailFragment.ARG_ITEM_ID, item.id);
-//        CategoryDetailFragment fragment = new CategoryDetailFragment();
-//        fragment.setArguments(arguments);
-//        mParentActivity.getSupportFragmentManager().beginTransaction()
-//            .replace(R.id.category_detail_container, fragment)
-//            .commit();
-//      } else {
-//        Context context = view.getContext();
-//        //Intent intent = new Intent(context, CategoryDetailActivity.class);
-//        Intent intent = new Intent(context, ProductListActivity.class);
-//        //intent.putExtra(CategoryDetailFragment.ARG_ITEM_ID, item.id);
-//        intent.putExtra(ProductListActivity.ARG_ITEM_ID, item.id);
-//
-//        context.startActivity(intent);
-//      }
-//      */
-//    }
-//  };
 
   public CatalogRecyclerViewAdapter(List<CatalogItem> items, View.OnClickListener listener) {
     mValues = items;
     mOnClickListener = listener;
   }
 
-  /*
-  CatalogRecyclerViewAdapter(AppCompatActivity parent, List<CatalogItem> items, boolean twoPane) {
-    mValues = items;
-    mParentActivity = parent;
-    mTwoPane = twoPane;
-  }
-  */
 
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

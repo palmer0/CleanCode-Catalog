@@ -13,7 +13,6 @@ interface CategoryListContract {
   interface Presenter {
     void fetchCategoryListData();
     void selectCategoryListData(CatalogItem item);
-    //void selectCategoryListData(String id);
   }
 
   interface Model {

@@ -21,12 +21,6 @@ public class CategoryListRouter {
     activity.get().startActivity(intent);
   }
 
-  /*
-  public void passDataToProductListScreen(String id) {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
-    mediator.setCategoryId(id);
-  }
-  */
 
   public void passDataToProductListScreen(CatalogItem item) {
     AppMediator mediator = (AppMediator) activity.get().getApplication();

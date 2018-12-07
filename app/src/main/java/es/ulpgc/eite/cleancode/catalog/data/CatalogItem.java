@@ -4,9 +4,7 @@ package es.ulpgc.eite.cleancode.catalog.data;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A dummy item representing a piece of content.
- */
+
 public class CatalogItem {
   public final int id;
   public final String content;

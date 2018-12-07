@@ -18,11 +18,13 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
   public void fetchCategoryListData() {
     // Log.e(TAG, "fetchCategoryListData()");
 
+    /*
     // set passed state
-    //String data = router.getDataFromPreviousScreen();
-    //if(data != null) {
-    //    viewModel.data = data;
-    //}
+    String data = router.getDataFromPreviousScreen();
+    if(data != null) {
+        viewModel.data = data;
+    }
+    */
 
     // call the model
 
@@ -37,12 +39,5 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     router.navigateToProductListScreen();
   }
 
-  /*
-  @Override
-  public void selectCategoryListData(String id) {
-    router.passDataToProductListScreen(id);
-    router.navigateToProductListScreen();
-  }
-  */
 
 }

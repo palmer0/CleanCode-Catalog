@@ -17,6 +17,5 @@ interface ProductListContract {
 
   interface Model {
     List<CatalogItem> fetchProductListData(CatalogItem category);
-    //CatalogItem fetchProductListData(String id);
   }
 }

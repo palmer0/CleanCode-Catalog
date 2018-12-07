@@ -6,7 +6,6 @@ import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
 
 public class AppMediator extends Application {
 
-  //private String categoryId;
   private CatalogItem category;
   private CatalogItem product;
 
@@ -30,17 +29,5 @@ public class AppMediator extends Application {
     //category = null;
     return item;
   }
-
-  /*
-  public void setCategoryId(String id) {
-    categoryId = id;
-  }
-
-  public String getCategoryId() {
-    String id = categoryId;
-    categoryId = null;
-    return id;
-  }
-  */
 
 }

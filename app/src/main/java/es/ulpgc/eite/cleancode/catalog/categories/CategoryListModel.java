@@ -18,15 +18,12 @@ public class CategoryListModel implements CategoryListContract.Model {
 
   public CategoryListModel(WeakReference<CategoryListActivity> activity) {
     this.activity = activity;
-    //repository = new CatalogRepository();
     repository = CatalogRepository.getInstance();
   }
 
   @Override
   public List<CatalogItem> fetchCategoryListData() {
     Log.e(TAG, "fetchCategoryListData()");
-    //return repository.getItemList();
     return repository.getCategoryList();
-    //return CatalogRepository.getInstance().getCategoryList();
   }
 }
