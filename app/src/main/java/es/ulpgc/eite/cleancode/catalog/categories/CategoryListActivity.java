@@ -55,7 +55,6 @@ public class CategoryListActivity
 
           @Override
           public void onClick(View view) {
-            //CatalogItem item = (CatalogItem) view.getTag();
             CategoryItem item = (CategoryItem) view.getTag();
             presenter.selectCategoryListData(item);
           }

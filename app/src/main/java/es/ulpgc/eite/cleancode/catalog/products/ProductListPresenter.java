@@ -21,8 +21,6 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
     // set passed state
     CategoryItem item = router.getDataFromCategoryListScreen();
-    //CatalogItem item = router.getDataFromCategoryListScreen();
-    //CategoryItem item = (CategoryItem) router.getDataFromCategoryListScreen();
 
     if (item != null) {
       viewModel.category = item;
@@ -35,13 +33,6 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
   }
 
-  /*
-  @Override
-  public void selectProductListData(CatalogItem item) {
-    router.passDataToProductDetailScreen(item);
-    router.navigateToProductDetailScreen();
-  }
-  */
 
   @Override
   public void selectProductListData(ProductItem item) {

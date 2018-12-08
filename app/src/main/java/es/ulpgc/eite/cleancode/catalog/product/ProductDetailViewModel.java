@@ -8,7 +8,6 @@ import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 // implementation 'android.arch.lifecycle:extensions:1.1.1'
 public class ProductDetailViewModel extends ViewModel {
 
-  //public CatalogItem product;
   public ProductItem product;
 }
 

@@ -26,12 +26,6 @@ public class CategoryListRouter {
     mediator.setCategory(item);
   }
 
-  /*
-  public void passDataToProductListScreen(CatalogItem item) {
-    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
-    mediator.setCategory(item);
-  }
-  */
 
   public String getDataFromPreviousScreen() {
     //CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();

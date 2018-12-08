@@ -14,23 +14,16 @@ import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 public class ProductListAdapter
     extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
 
-  //private final List<CatalogItem> mValues;
-  private final List<ProductItem> mValues;
-  private final View.OnClickListener mOnClickListener;
+  private final List<ProductItem> itemList;
+  private final View.OnClickListener clickListener;
 
 
   public ProductListAdapter(
       List<ProductItem> items, View.OnClickListener listener) {
-    mValues = items;
-    mOnClickListener = listener;
+    itemList = items;
+    clickListener = listener;
   }
 
-  /*
-  public ProductListAdapter(List<CatalogItem> items, View.OnClickListener listener) {
-    mValues = items;
-    mOnClickListener = listener;
-  }
-  */
 
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,26 +34,23 @@ public class ProductListAdapter
 
   @Override
   public void onBindViewHolder(final ViewHolder holder, int position) {
-    //holder.mIdView.setText(mValues.get(position).id);
-    holder.mContentView.setText(mValues.get(position).content);
+    holder.contentView.setText(itemList.get(position).content);
 
-    holder.itemView.setTag(mValues.get(position));
-    holder.itemView.setOnClickListener(mOnClickListener);
+    holder.itemView.setTag(itemList.get(position));
+    holder.itemView.setOnClickListener(clickListener);
   }
 
   @Override
   public int getItemCount() {
-    return mValues.size();
+    return itemList.size();
   }
 
   class ViewHolder extends RecyclerView.ViewHolder {
-    //final TextView mIdView;
-    final TextView mContentView;
+    final TextView contentView;
 
     ViewHolder(View view) {
       super(view);
-      //mIdView = view.findViewById(R.id.id_text);
-      mContentView = view.findViewById(R.id.content);
+      contentView = view.findViewById(R.id.content);
     }
   }
 }

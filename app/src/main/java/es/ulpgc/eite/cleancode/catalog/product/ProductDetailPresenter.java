@@ -20,7 +20,6 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     // set passed state
     ProductItem product = router.getDataFromProductListScreen();
-    //CatalogItem product = router.getDataFromProductListScreen();
     if(product != null) {
         viewModel.product = product;
     }

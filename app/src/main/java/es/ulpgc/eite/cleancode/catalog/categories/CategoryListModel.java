@@ -21,14 +21,6 @@ public class CategoryListModel implements CategoryListContract.Model {
     repository = CatalogRepository.getInstance();
   }
 
-  /*
-  @Override
-  public List<CatalogItem> fetchCategoryListData() {
-    Log.e(TAG, "fetchCategoryListData()");
-    return repository.getCategoryList();
-  }
-  */
-
   @Override
   public List<CategoryItem> fetchCategoryListData() {
     Log.e(TAG, "fetchCategoryListData()");

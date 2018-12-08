@@ -12,12 +12,10 @@ interface CategoryListContract {
 
   interface Presenter {
     void fetchCategoryListData();
-    //void selectCategoryListData(CatalogItem item);
     void selectCategoryListData(CategoryItem item);
   }
 
   interface Model {
-    //List<CatalogItem> fetchCategoryListData();
     List<CategoryItem> fetchCategoryListData();
   }
 }

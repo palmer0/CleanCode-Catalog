@@ -11,9 +11,6 @@ import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 // implementation 'android.arch.lifecycle:extensions:1.1.1'
 public class ProductListViewModel extends ViewModel {
 
-  //public String id;
-  //public CatalogItem category;
-  //public List<CatalogItem> products;
   public CategoryItem category;
   public List<ProductItem> products;
 

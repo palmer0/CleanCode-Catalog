@@ -1,7 +1,5 @@
 package es.ulpgc.eite.cleancode.catalog.product;
 
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
-
 interface ProductDetailContract {
 
   interface View {
@@ -13,6 +11,6 @@ interface ProductDetailContract {
   }
 
   interface Model {
-    CatalogItem fetchProductDetailData();
+    //CatalogItem fetchProductDetailData();
   }
 }

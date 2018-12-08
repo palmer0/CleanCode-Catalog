@@ -33,13 +33,6 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
   }
 
-  /*
-  @Override
-  public void selectCategoryListData(CatalogItem item) {
-    router.passDataToProductListScreen(item);
-    router.navigateToProductListScreen();
-  }
-  */
 
   @Override
   public void selectCategoryListData(CategoryItem item) {

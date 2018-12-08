@@ -22,13 +22,6 @@ public class ProductListModel implements ProductListContract.Model {
     repository = CatalogRepository.getInstance();
   }
 
-  /*
-  @Override
-  public List<CatalogItem> fetchProductListData(CatalogItem category) {
-    Log.e(TAG, "fetchProductListData()");
-    return repository.getProductList(category.id);
-  }
-  */
 
   @Override
   public List<ProductItem> fetchProductListData(CategoryItem category) {

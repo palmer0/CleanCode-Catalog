@@ -52,8 +52,6 @@ public class ProductDetailActivity
 
     // deal with the data
     ProductItem product = viewModel.product;
-    //ProductItem product = (ProductItem) viewModel.product;
-    //CatalogItem product = viewModel.product;
 
     if (product != null) {
       if (appBarLayout != null) {

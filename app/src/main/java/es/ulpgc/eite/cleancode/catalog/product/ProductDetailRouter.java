@@ -25,13 +25,6 @@ public class ProductDetailRouter {
     //mediator.setData(data);
   }
 
-  /*
-  public CatalogItem getDataFromProductListScreen() {
-    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
-    CatalogItem product = mediator.getProduct();
-    return product;
-  }
-  */
 
   public ProductItem getDataFromProductListScreen() {
     CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();

@@ -22,26 +22,11 @@ public class ProductListRouter {
     activity.get().startActivity(intent);
   }
 
-  /*
-  public void passDataToProductDetailScreen(CatalogItem item) {
-    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
-    mediator.setProduct(item);
-  }
-  */
-
-
   public void passDataToProductDetailScreen(ProductItem item) {
     CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
     mediator.setProduct(item);
   }
 
-  /*
-  public CatalogItem getDataFromCategoryListScreen() {
-    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
-    CatalogItem category = mediator.getCategory();
-    return category;
-  }
-  */
 
   public CategoryItem getDataFromCategoryListScreen() {
     CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();

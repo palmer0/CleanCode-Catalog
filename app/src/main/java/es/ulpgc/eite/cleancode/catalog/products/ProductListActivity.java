@@ -63,7 +63,6 @@ public class ProductListActivity
 
           @Override
           public void onClick(View view) {
-            //CatalogItem item = (CatalogItem) view.getTag();
             ProductItem item = (ProductItem) view.getTag();
             presenter.selectProductListData(item);
           }
