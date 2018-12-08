@@ -22,7 +22,8 @@ public class ProductDetailActivity
 
   ProductDetailContract.Presenter presenter;
 
-  private CollapsingToolbarLayout appBarLayout;
+  //private CollapsingToolbarLayout appBarLayout;
+  private ActionBar actionBar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,13 @@ public class ProductDetailActivity
     setSupportActionBar(toolbar);
 
     // Show the Up button in the action bar.
-    ActionBar actionBar = getSupportActionBar();
+    actionBar = getSupportActionBar();
+    //ActionBar actionBar = getSupportActionBar();
     if (actionBar != null) {
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    appBarLayout = findViewById(R.id.toolbar_layout);
+    //appBarLayout = findViewById(R.id.toolbar_layout);
 
     // do the setup
     ProductDetailConfigurator.INSTANCE.configure(this);
@@ -54,10 +56,15 @@ public class ProductDetailActivity
     ProductItem product = viewModel.product;
 
     if (product != null) {
+      if (actionBar != null) {
+        actionBar.setTitle(product.content);
+      }
+
+      /*
       if (appBarLayout != null) {
         appBarLayout.setTitle(product.content);
       }
-
+      */
 
       ((TextView) findViewById(R.id.product_detail)).setText(product.details);
     }
