@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
 
@@ -53,7 +53,7 @@ public class ProductListActivity
     Log.e(TAG, "displayProductListData()");
 
     // deal with the data
-    CatalogItem category = viewModel.category;
+    CategoryItem category = viewModel.category;
     if (actionBar != null) {
       actionBar.setTitle(category.content);
     }
