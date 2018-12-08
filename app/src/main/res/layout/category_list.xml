@@ -7,8 +7,6 @@
     android:name="es.ulpgc.eite.cleancode.catalog.CategoryListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".categories.CategoryListActivity"
     tools:listitem="@layout/category_list_content"/>

@@ -2,7 +2,7 @@ package es.ulpgc.eite.cleancode.catalog.categories;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 
 
 public class CategoryListPresenter implements CategoryListContract.Presenter {
@@ -33,11 +33,18 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
   }
 
+  /*
   @Override
   public void selectCategoryListData(CatalogItem item) {
     router.passDataToProductListScreen(item);
     router.navigateToProductListScreen();
   }
+  */
 
+  @Override
+  public void selectCategoryListData(CategoryItem item) {
+    router.passDataToProductListScreen(item);
+    router.navigateToProductListScreen();
+  }
 
 }

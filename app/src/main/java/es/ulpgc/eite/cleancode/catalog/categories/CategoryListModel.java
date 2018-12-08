@@ -5,8 +5,8 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
 import es.ulpgc.eite.cleancode.catalog.data.CatalogRepository;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 
 public class CategoryListModel implements CategoryListContract.Model {
 
@@ -21,8 +21,16 @@ public class CategoryListModel implements CategoryListContract.Model {
     repository = CatalogRepository.getInstance();
   }
 
+  /*
   @Override
   public List<CatalogItem> fetchCategoryListData() {
+    Log.e(TAG, "fetchCategoryListData()");
+    return repository.getCategoryList();
+  }
+  */
+
+  @Override
+  public List<CategoryItem> fetchCategoryListData() {
     Log.e(TAG, "fetchCategoryListData()");
     return repository.getCategoryList();
   }

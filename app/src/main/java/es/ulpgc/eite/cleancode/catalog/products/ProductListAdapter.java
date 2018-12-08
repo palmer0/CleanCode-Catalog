@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.catalog.adapter;
+package es.ulpgc.eite.cleancode.catalog.products;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,20 +9,28 @@ import android.widget.TextView;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
-public class CatalogRecyclerViewAdapter
-    extends RecyclerView.Adapter<CatalogRecyclerViewAdapter.ViewHolder> {
+public class ProductListAdapter
+    extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
 
-  private final List<CatalogItem> mValues;
+  //private final List<CatalogItem> mValues;
+  private final List<ProductItem> mValues;
   private final View.OnClickListener mOnClickListener;
 
 
-  public CatalogRecyclerViewAdapter(List<CatalogItem> items, View.OnClickListener listener) {
+  public ProductListAdapter(
+      List<ProductItem> items, View.OnClickListener listener) {
     mValues = items;
     mOnClickListener = listener;
   }
 
+  /*
+  public ProductListAdapter(List<CatalogItem> items, View.OnClickListener listener) {
+    mValues = items;
+    mOnClickListener = listener;
+  }
+  */
 
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

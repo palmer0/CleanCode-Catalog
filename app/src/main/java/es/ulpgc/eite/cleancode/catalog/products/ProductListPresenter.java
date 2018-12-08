@@ -2,7 +2,8 @@ package es.ulpgc.eite.cleancode.catalog.products;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
 
 public class ProductListPresenter implements ProductListContract.Presenter {
@@ -19,7 +20,10 @@ public class ProductListPresenter implements ProductListContract.Presenter {
     // Log.e(TAG, "fetchProductListData()");
 
     // set passed state
-    CatalogItem item = router.getDataFromCategoryListScreen();
+    CategoryItem item = router.getDataFromCategoryListScreen();
+    //CatalogItem item = router.getDataFromCategoryListScreen();
+    //CategoryItem item = (CategoryItem) router.getDataFromCategoryListScreen();
+
     if (item != null) {
       viewModel.category = item;
     }
@@ -31,8 +35,16 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
   }
 
+  /*
   @Override
   public void selectProductListData(CatalogItem item) {
+    router.passDataToProductDetailScreen(item);
+    router.navigateToProductDetailScreen();
+  }
+  */
+
+  @Override
+  public void selectProductListData(ProductItem item) {
     router.passDataToProductDetailScreen(item);
     router.navigateToProductDetailScreen();
   }

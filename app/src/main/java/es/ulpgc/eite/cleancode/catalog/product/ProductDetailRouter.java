@@ -4,8 +4,8 @@ import android.content.Intent;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.catalog.app.AppMediator;
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
 
 public class ProductDetailRouter {
@@ -21,13 +21,21 @@ public class ProductDetailRouter {
   }
 
   public void passDataToNextScreen(String data) {
-    //AppMediator mediator = (AppMediator) activity.get().getApplication();
+    //CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
     //mediator.setData(data);
   }
 
+  /*
   public CatalogItem getDataFromProductListScreen() {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
+    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
     CatalogItem product = mediator.getProduct();
+    return product;
+  }
+  */
+
+  public ProductItem getDataFromProductListScreen() {
+    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
+    ProductItem product = mediator.getProduct();
     return product;
   }
 }

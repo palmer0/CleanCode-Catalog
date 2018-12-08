@@ -4,8 +4,9 @@ import android.content.Intent;
 
 import java.lang.ref.WeakReference;
 
-import es.ulpgc.eite.cleancode.catalog.app.AppMediator;
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 import es.ulpgc.eite.cleancode.catalog.product.ProductDetailActivity;
 
 
@@ -21,16 +22,31 @@ public class ProductListRouter {
     activity.get().startActivity(intent);
   }
 
+  /*
   public void passDataToProductDetailScreen(CatalogItem item) {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
+    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
+    mediator.setProduct(item);
+  }
+  */
+
+
+  public void passDataToProductDetailScreen(ProductItem item) {
+    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
     mediator.setProduct(item);
   }
 
+  /*
   public CatalogItem getDataFromCategoryListScreen() {
-    AppMediator mediator = (AppMediator) activity.get().getApplication();
+    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
     CatalogItem category = mediator.getCategory();
     return category;
   }
+  */
 
+  public CategoryItem getDataFromCategoryListScreen() {
+    CatalogMediator mediator = (CatalogMediator) activity.get().getApplication();
+    CategoryItem category = mediator.getCategory();
+    return category;
+  }
 
 }

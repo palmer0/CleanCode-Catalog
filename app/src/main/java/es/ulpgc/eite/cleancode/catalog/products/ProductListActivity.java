@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.adapter.CatalogRecyclerViewAdapter;
 import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
 
 public class ProductListActivity
@@ -59,12 +59,12 @@ public class ProductListActivity
     }
 
     recyclerView.setAdapter(
-        new CatalogRecyclerViewAdapter(
-            viewModel.products, new View.OnClickListener() {
+        new ProductListAdapter(viewModel.products, new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
-            CatalogItem item = (CatalogItem) view.getTag();
+            //CatalogItem item = (CatalogItem) view.getTag();
+            ProductItem item = (ProductItem) view.getTag();
             presenter.selectProductListData(item);
           }
         })

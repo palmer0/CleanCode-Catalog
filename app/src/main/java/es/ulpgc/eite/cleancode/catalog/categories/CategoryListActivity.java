@@ -9,8 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.adapter.CatalogRecyclerViewAdapter;
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 
 
 public class CategoryListActivity
@@ -30,12 +29,11 @@ public class CategoryListActivity
 
     Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-    toolbar.setTitle(getTitle());
 
     // Show the Up button in the action bar.
     ActionBar actionBar = getSupportActionBar();
     if (actionBar != null) {
-      actionBar.setTitle(R.string.app_title);
+      actionBar.setTitle(R.string.app_name);
     }
 
     recyclerView = findViewById(R.id.category_list);
@@ -53,12 +51,12 @@ public class CategoryListActivity
 
     // deal with the data
     recyclerView.setAdapter(
-        new CatalogRecyclerViewAdapter(
-            viewModel.categories, new View.OnClickListener() {
+        new CategoryListAdapter(viewModel.categories, new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
-            CatalogItem item = (CatalogItem) view.getTag();
+            //CatalogItem item = (CatalogItem) view.getTag();
+            CategoryItem item = (CategoryItem) view.getTag();
             presenter.selectCategoryListData(item);
           }
         })

@@ -2,7 +2,7 @@ package es.ulpgc.eite.cleancode.catalog.categories;
 
 import java.util.List;
 
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 
 interface CategoryListContract {
 
@@ -12,10 +12,12 @@ interface CategoryListContract {
 
   interface Presenter {
     void fetchCategoryListData();
-    void selectCategoryListData(CatalogItem item);
+    //void selectCategoryListData(CatalogItem item);
+    void selectCategoryListData(CategoryItem item);
   }
 
   interface Model {
-    List<CatalogItem> fetchCategoryListData();
+    //List<CatalogItem> fetchCategoryListData();
+    List<CategoryItem> fetchCategoryListData();
   }
 }

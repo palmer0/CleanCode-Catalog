@@ -8,6 +8,10 @@ public class CatalogRepository {
 
   private static CatalogRepository INSTANCE;
 
+  private final List<CategoryItem> itemList = new ArrayList<>();
+  //private final List<CatalogItem> itemList = new ArrayList<>();
+  private final int COUNT = 20;
+
   public static CatalogRepository getInstance() {
     if(INSTANCE == null){
       INSTANCE = new CatalogRepository();
@@ -15,11 +19,6 @@ public class CatalogRepository {
 
     return INSTANCE;
   }
-
-
-
-  private final List<CatalogItem> itemList = new ArrayList<>();
-  private final int COUNT = 20;
 
   private CatalogRepository() {
     // Add some sample items.
@@ -29,6 +28,19 @@ public class CatalogRepository {
   }
 
 
+  public List<ProductItem> getProductList(int id) {
+    for (int index = 1; index <= COUNT; index++) {
+      CategoryItem item = itemList.get(index);
+
+      if(item.id == id) {
+        return item.items;
+      }
+    }
+
+    return new ArrayList<>();
+  }
+
+  /*
   public List<CatalogItem> getProductList(int id) {
     for (int index = 1; index <= COUNT; index++) {
       CatalogItem item = itemList.get(index);
@@ -40,8 +52,18 @@ public class CatalogRepository {
 
     return new ArrayList<>();
   }
+  */
+
+  public List<CategoryItem> getCategoryList() {
+    return itemList;
+  }
 
 
+  private void addCategory(CategoryItem item) {
+    itemList.add(item);
+  }
+
+  /*
   public List<CatalogItem> getCategoryList() {
     return itemList;
   }
@@ -50,24 +72,54 @@ public class CatalogRepository {
   private void addCategory(CatalogItem item) {
     itemList.add(item);
   }
+  */
 
+  /*
   private void addProduct(List<CatalogItem> itemList, CatalogItem item) {
+    itemList.add(item);
+  }
+  */
+
+  private void addProduct(List<ProductItem> itemList, ProductItem item) {
     itemList.add(item);
   }
 
 
-  private CatalogItem createProduct(int id, int position) {
+
+  private ProductItem createProduct(int id, int position) {
     String content = "Product " + id + "." + position;
 
+    return new ProductItem(
+        position, content, fetchProductDetails(id, position)
+    );
+
+    /*
     return new CatalogItem(
         position, content, fetchProductDetails(id, position)
     );
+    */
   }
 
+  /*
   private CatalogItem createCategory(int position) {
     CatalogItem item = new CatalogItem(
         position, "Category " + position, fetchCategoryDetails(position)
     );
+
+    for (int index = 1; index <= COUNT; index++) {
+      addProduct(item.items, createProduct(item.id, index));
+    }
+
+    return item;
+  }
+  */
+
+  private CategoryItem createCategory(int position) {
+
+    CategoryItem item = new CategoryItem(
+        position, "Category " + position, fetchCategoryDetails(position)
+    );
+
 
     for (int index = 1; index <= COUNT; index++) {
       addProduct(item.items, createProduct(item.id, index));

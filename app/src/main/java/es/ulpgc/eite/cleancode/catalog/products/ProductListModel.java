@@ -5,8 +5,9 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
 import es.ulpgc.eite.cleancode.catalog.data.CatalogRepository;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
 public class ProductListModel implements ProductListContract.Model {
 
@@ -21,10 +22,17 @@ public class ProductListModel implements ProductListContract.Model {
     repository = CatalogRepository.getInstance();
   }
 
+  /*
   @Override
   public List<CatalogItem> fetchProductListData(CatalogItem category) {
     Log.e(TAG, "fetchProductListData()");
     return repository.getProductList(category.id);
   }
+  */
 
+  @Override
+  public List<ProductItem> fetchProductListData(CategoryItem category) {
+    Log.e(TAG, "fetchProductListData()");
+    return repository.getProductList(category.id);
+  }
 }

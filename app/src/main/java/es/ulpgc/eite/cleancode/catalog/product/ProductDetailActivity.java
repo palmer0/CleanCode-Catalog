@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.data.CatalogItem;
+import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 import es.ulpgc.eite.cleancode.catalog.products.ProductListActivity;
 
 
@@ -51,7 +51,10 @@ public class ProductDetailActivity
     Log.e(TAG, "displayProductDetailData()");
 
     // deal with the data
-    CatalogItem product = viewModel.product;
+    ProductItem product = viewModel.product;
+    //ProductItem product = (ProductItem) viewModel.product;
+    //CatalogItem product = viewModel.product;
+
     if (product != null) {
       if (appBarLayout != null) {
         appBarLayout.setTitle(product.content);
