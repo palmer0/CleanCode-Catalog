@@ -9,10 +9,34 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
   public static String TAG = ProductDetailPresenter.class.getSimpleName();
 
+  /*
   public WeakReference<ProductDetailContract.View> view;
   public ProductDetailViewModel viewModel;
   public ProductDetailContract.Model model;
   public ProductDetailRouter router;
+  */
+
+  private WeakReference<ProductDetailContract.View> view;
+  private ProductDetailViewModel viewModel;
+  private ProductDetailContract.Model model;
+  private ProductDetailContract.Router router;
+
+  public ProductDetailPresenter(
+      ProductDetailViewModel viewModel, ProductDetailContract.Router router) {
+
+    this.viewModel = viewModel;
+    this.router = router;
+  }
+
+  @Override
+  public void injectView(WeakReference<ProductDetailContract.View> view) {
+    this.view = view;
+  }
+
+  @Override
+  public void injectModel(ProductDetailContract.Model model) {
+    this.model = model;
+  }
 
   @Override
   public void fetchProductDetailData() {
