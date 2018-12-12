@@ -14,7 +14,7 @@ public class CategoryListModel implements CategoryListContract.Model {
   public static String TAG = CategoryListModel.class.getSimpleName();
 
   //private WeakReference<CategoryListActivity> activity;
-  private WeakReference<FragmentActivity> activity;
+  private WeakReference<FragmentActivity> context;
   private CatalogRepository repository;
 
   /*
@@ -24,8 +24,8 @@ public class CategoryListModel implements CategoryListContract.Model {
   }
   */
 
-  public CategoryListModel(WeakReference<FragmentActivity> activity) {
-    this.activity = activity;
+  public CategoryListModel(WeakReference<FragmentActivity> context) {
+    this.context = context;
     repository = CatalogRepository.getInstance();
 
   }
