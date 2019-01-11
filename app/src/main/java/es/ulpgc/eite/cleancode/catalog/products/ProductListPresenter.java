@@ -1,5 +1,8 @@
 package es.ulpgc.eite.cleancode.catalog.products;
 
+import android.arch.lifecycle.ViewModelProviders;
+import android.support.v4.app.FragmentActivity;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
@@ -22,11 +25,19 @@ public class ProductListPresenter implements ProductListContract.Presenter {
   private ProductListContract.Model model;
   private ProductListContract.Router router;
 
+  /*
   public ProductListPresenter(
       ProductListViewModel viewModel, ProductListContract.Router router) {
 
     this.viewModel = viewModel;
     this.router = router;
+  }
+  */
+
+  public ProductListPresenter(WeakReference<FragmentActivity> context) {
+    viewModel = ViewModelProviders
+        .of(context.get())
+        .get(ProductListViewModel.class);
   }
 
   @Override
@@ -37,6 +48,11 @@ public class ProductListPresenter implements ProductListContract.Presenter {
   @Override
   public void injectModel(ProductListContract.Model model) {
     this.model = model;
+  }
+
+  @Override
+  public void injectRouter(ProductListContract.Router router) {
+    this.router = router;
   }
 
   @Override
