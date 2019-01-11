@@ -1,34 +1,89 @@
 package es.ulpgc.eite.cleancode.catalog.products;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.R;
+import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
-public class ProductListAdapter
-    extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
+public class ProductListAdapter extends ArrayAdapter<ProductItem> {
+    //extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
 
   private final List<ProductItem> itemList;
   private final View.OnClickListener clickListener;
 
 
+
+  /*
   public ProductListAdapter(
       List<ProductItem> items, View.OnClickListener listener) {
     itemList = items;
     clickListener = listener;
   }
+  */
+
+
+  public ProductListAdapter(
+      Context context, List<ProductItem> items, View.OnClickListener listener) {
+
+    super(context, 0, items);
+
+    itemList = items;
+    clickListener = listener;
+  }
+
 
 
   @Override
+  public int getCount() {
+    return itemList.size();
+  }
+
+  @Override
+  public ProductItem getItem(int position) {
+    return itemList.get(position);
+  }
+
+  @Override
+  public long getItemId(int position) {
+    return getItem(position).id;
+  }
+
+  @Override
+  public View getView(int position, View convertView, ViewGroup parent) {
+    View itemView = convertView;
+
+    if(itemView == null) {
+      itemView = LayoutInflater
+          .from(parent.getContext())
+          .inflate(R.layout.product_list_content, parent, false);
+    }
+
+    itemView.setTag(itemList.get(position));
+    itemView.setOnClickListener(clickListener);
+
+    //ProductItem item = getItem(position);
+
+    final TextView contentView = itemView.findViewById(R.id.content);
+    contentView.setText(itemList.get(position).content);
+
+    return itemView;
+  }
+
+
+  /*
+  @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext())
-        .inflate(R.layout.category_list_content, parent, false);
+        .inflate(R.layout.product_list_content, parent, false);
     return new ViewHolder(view);
   }
 
@@ -53,4 +108,6 @@ public class ProductListAdapter
       contentView = view.findViewById(R.id.content);
     }
   }
+  */
+
 }

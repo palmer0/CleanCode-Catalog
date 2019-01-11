@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
 import es.ulpgc.eite.cleancode.catalog.R;
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
@@ -19,7 +20,8 @@ public class CategoryListActivity
 
   CategoryListContract.Presenter presenter;
 
-  private RecyclerView recyclerView;
+  //private RecyclerView recyclerView;
+  private ListView listView;
 
 
   @Override
@@ -36,7 +38,8 @@ public class CategoryListActivity
       actionBar.setTitle(R.string.app_name);
     }
 
-    recyclerView = findViewById(R.id.category_list);
+    //recyclerView = findViewById(R.id.category_list);
+    listView = findViewById(R.id.category_list);
 
     // do the setup
     CategoryListScreen.configure(this);
@@ -55,6 +58,18 @@ public class CategoryListActivity
     Log.e(TAG, "displayCategoryListData()");
 
     // deal with the data
+    listView.setAdapter(new CategoryListAdapter(
+        this, viewModel.categories, new View.OnClickListener() {
+
+          @Override
+          public void onClick(View view) {
+            CategoryItem item = (CategoryItem) view.getTag();
+            presenter.selectCategoryListData(item);
+          }
+        })
+    );
+
+    /*
     recyclerView.setAdapter(
         new CategoryListAdapter(viewModel.categories, new View.OnClickListener() {
 
@@ -65,6 +80,7 @@ public class CategoryListActivity
           }
         })
     );
+    */
 
   }
 
