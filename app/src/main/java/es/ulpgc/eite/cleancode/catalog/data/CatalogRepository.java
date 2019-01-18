@@ -4,13 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CatalogRepository {
+public class CatalogRepository implements RepositoryContract {
 
   private static CatalogRepository INSTANCE;
 
   private final List<CategoryItem> itemList = new ArrayList<>();
   private final int COUNT = 20;
 
+  public static RepositoryContract getInstance() {
+    if(INSTANCE == null){
+      INSTANCE = new CatalogRepository();
+    }
+
+    return INSTANCE;
+  }
+
+  /*
   public static CatalogRepository getInstance() {
     if(INSTANCE == null){
       INSTANCE = new CatalogRepository();
@@ -18,6 +27,7 @@ public class CatalogRepository {
 
     return INSTANCE;
   }
+  */
 
   private CatalogRepository() {
     // Add some sample items.
@@ -26,7 +36,7 @@ public class CatalogRepository {
     }
   }
 
-
+  @Override
   public List<ProductItem> getProductList(int id) {
     for (int index = 1; index <= COUNT; index++) {
       CategoryItem item = itemList.get(index);
@@ -39,7 +49,7 @@ public class CatalogRepository {
     return new ArrayList<>();
   }
 
-
+  @Override
   public List<CategoryItem> getCategoryList() {
     return itemList;
   }

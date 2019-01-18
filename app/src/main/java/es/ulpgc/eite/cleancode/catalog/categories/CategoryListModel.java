@@ -8,6 +8,7 @@ import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.data.CatalogRepository;
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.data.RepositoryContract;
 
 public class CategoryListModel implements CategoryListContract.Model {
 
@@ -15,7 +16,9 @@ public class CategoryListModel implements CategoryListContract.Model {
 
   //private WeakReference<CategoryListActivity> activity;
   private WeakReference<FragmentActivity> context;
-  private CatalogRepository repository;
+
+  //private CatalogRepository repository;
+  private RepositoryContract repository;
 
   /*
   public CategoryListModel(WeakReference<CategoryListActivity> activity) {
