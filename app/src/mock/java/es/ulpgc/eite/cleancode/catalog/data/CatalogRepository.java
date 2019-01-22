@@ -77,11 +77,15 @@ public class CatalogRepository implements RepositoryContract {
 
 
   private CategoryItem createCategory(int position) {
-
+    /*
     CategoryItem item = new CategoryItem(
         position, "Category " + position, fetchCategoryDetails(position)
     );
+    */
 
+    CategoryItem item = new CategoryItem(
+        position, "Category " + position
+    );
 
     for (int index = 1; index <= COUNT; index++) {
       addProduct(item.items, createProduct(item.id, index));
@@ -90,7 +94,7 @@ public class CatalogRepository implements RepositoryContract {
     return item;
   }
 
-
+  /*
   private String fetchCategoryDetails(int position) {
     StringBuilder builder = new StringBuilder();
     builder.append("Details about Category: ").append(position);
@@ -101,6 +105,7 @@ public class CatalogRepository implements RepositoryContract {
 
     return builder.toString();
   }
+  */
 
   private String fetchProductDetails(int id, int position) {
     String content = "Details about Product:  " + id + "." + position;
