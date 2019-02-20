@@ -1,8 +1,5 @@
 package es.ulpgc.eite.cleancode.catalog.categories;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v4.app.FragmentActivity;
-
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
@@ -24,6 +21,10 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
   private CategoryListContract.Model model;
   private CategoryListContract.Router router;
 
+  public CategoryListPresenter(CategoryListState state) {
+    viewModel = state;
+  }
+
   /*
   public CategoryListPresenter(
       CategoryListViewModel viewModel, CategoryListContract.Router router) {
@@ -33,11 +34,6 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
   }
   */
 
-  public CategoryListPresenter(WeakReference<FragmentActivity> context) {
-    viewModel = ViewModelProviders
-        .of(context.get())
-        .get(CategoryListViewModel.class);
-  }
 
   @Override
   public void injectView(WeakReference<CategoryListContract.View> view) {

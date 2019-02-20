@@ -1,8 +1,5 @@
 package es.ulpgc.eite.cleancode.catalog.product;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v4.app.FragmentActivity;
-
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
@@ -33,10 +30,14 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
   }
   */
 
-  public ProductDetailPresenter(WeakReference<FragmentActivity> context) {
-    viewModel = ViewModelProviders
-        .of(context.get())
-        .get(ProductDetailViewModel.class);
+//  public ProductDetailPresenter(WeakReference<FragmentActivity> context) {
+//    viewModel = ViewModelProviders
+//        .of(context.get())
+//        .get(ProductDetailViewModel.class);
+//  }
+
+  public ProductDetailPresenter(ProductDetailState state) {
+    viewModel = state;
   }
 
   @Override

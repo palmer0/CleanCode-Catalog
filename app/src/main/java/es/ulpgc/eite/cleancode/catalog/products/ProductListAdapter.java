@@ -1,7 +1,6 @@
 package es.ulpgc.eite.cleancode.catalog.products;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 
 public class ProductListAdapter extends ArrayAdapter<ProductItem> {

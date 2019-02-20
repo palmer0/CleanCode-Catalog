@@ -1,9 +1,10 @@
 package es.ulpgc.eite.cleancode.catalog.product;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.FragmentActivity;
 
 import java.lang.ref.WeakReference;
+
+import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
 
 
 public class ProductDetailScreen {
@@ -13,18 +14,21 @@ public class ProductDetailScreen {
     WeakReference<FragmentActivity> context =
         new WeakReference<>((FragmentActivity) view);
 
+    CatalogMediator mediator = (CatalogMediator) context.get().getApplication();
+    ProductDetailState state = mediator.getProductDetailState();
+
     /*
     ProductDetailViewModel viewModel =
         ViewModelProviders.of(context.get()).get(ProductDetailViewModel.class);
     */
 
-    ProductDetailContract.Router router = new ProductDetailRouter(context);
+    ProductDetailContract.Router router = new ProductDetailRouter(mediator);
     /*
     ProductDetailContract.Presenter presenter =
         new ProductDetailPresenter(viewModel, router);
     */
-    ProductDetailContract.Presenter presenter=new ProductDetailPresenter(context);
-    ProductDetailModel model = new ProductDetailModel(context);
+    ProductDetailContract.Presenter presenter=new ProductDetailPresenter(state);
+    ProductDetailModel model = new ProductDetailModel();
     presenter.injectView(new WeakReference<>(view));
     presenter.injectModel(model);
     presenter.injectRouter(router);
