@@ -16,9 +16,11 @@ interface CategoryListContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
+    void injectRouter(Router router);
 
     void fetchCategoryListData();
     void selectCategoryListData(CategoryItem item);
+
   }
 
   interface Model {
@@ -29,6 +31,5 @@ interface CategoryListContract {
 
     void navigateToProductListScreen();
     void passDataToProductListScreen(CategoryItem item);
-    String getDataFromPreviousScreen();
   }
 }
