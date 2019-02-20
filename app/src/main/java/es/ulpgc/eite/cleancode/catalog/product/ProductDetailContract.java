@@ -27,7 +27,7 @@ interface ProductDetailContract {
   interface Router {
 
     void navigateToNextScreen();
-    void passDataToNextScreen(String data);
+    //void passDataToNextScreen(String data);
     ProductItem getDataFromProductListScreen();
   }
 }

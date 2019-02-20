@@ -14,6 +14,8 @@ public class CategoryListRouter implements CategoryListContract.Router {
 
   private CatalogMediator mediator;
 
+
+
   public CategoryListRouter(CatalogMediator mediator) {
     this.mediator = mediator;
   }
@@ -30,4 +32,12 @@ public class CategoryListRouter implements CategoryListContract.Router {
     mediator.setCategory(item);
   }
 
+  @Override
+  public String getDataFromPreviousScreen() {
+    //CatalogMediator mediator = (CatalogMediator) context.get().getApplication();
+    //String data = mediator.getData();
+    //mediator.resetData();
+    //return data;
+    return null;
+  }
 }

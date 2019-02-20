@@ -21,20 +21,23 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
   private CategoryListContract.Model model;
   private CategoryListContract.Router router;
 
-//  public CategoryListPresenter(
-//      CategoryListViewModel viewModel, CategoryListContract.Router router) {
-//
-//    this.viewModel = viewModel;
-//    this.router = router;
-//  }
-
   public CategoryListPresenter(CategoryListState state) {
     viewModel = state;
   }
 
+  /*
+  public CategoryListPresenter(
+      CategoryListViewModel viewModel, CategoryListContract.Router router) {
+
+    this.viewModel = viewModel;
+    this.router = router;
+  }
+  */
+
+
   @Override
   public void injectView(WeakReference<CategoryListContract.View> view) {
-    this.view = view;
+    this.view =view;
   }
 
   @Override
