@@ -2,6 +2,7 @@ package es.ulpgc.eite.cleancode.catalog.data;
 
 
 public abstract class CatalogItem {
+
   public final int id;
   public final String content;
 

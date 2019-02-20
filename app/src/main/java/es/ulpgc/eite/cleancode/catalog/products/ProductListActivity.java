@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 
 import es.ulpgc.eite.cleancode.catalog.R;
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
@@ -22,7 +23,8 @@ public class ProductListActivity
 
   ProductListContract.Presenter presenter;
 
-  private RecyclerView recyclerView;
+  //private RecyclerView recyclerView;
+  private ListView listView;
   private ActionBar actionBar;
 
   @Override
@@ -39,7 +41,8 @@ public class ProductListActivity
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    recyclerView = findViewById(R.id.product_list);
+    //recyclerView = findViewById(R.id.product_list);
+    listView = findViewById(R.id.product_list);
 
     // do the setup
     ProductListScreen.configure(this);
@@ -63,6 +66,18 @@ public class ProductListActivity
       actionBar.setTitle(category.content);
     }
 
+    listView.setAdapter(new ProductListAdapter(
+        this, viewModel.products, new View.OnClickListener() {
+
+          @Override
+          public void onClick(View view) {
+            ProductItem item = (ProductItem) view.getTag();
+            presenter.selectProductListData(item);
+          }
+        })
+    );
+
+    /*
     recyclerView.setAdapter(
         new ProductListAdapter(viewModel.products, new View.OnClickListener() {
 
@@ -73,6 +88,7 @@ public class ProductListActivity
           }
         })
     );
+    */
   }
 
   @Override
