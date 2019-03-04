@@ -48,10 +48,6 @@ public class ProductListActivity
     presenter.fetchProductListData();
   }
 
-  @Override
-  public void injectPresenter(ProductListContract.Presenter presenter) {
-    this.presenter = presenter;
-  }
 
   @Override
   public void displayProductListData(ProductListViewModel viewModel) {
@@ -84,5 +80,11 @@ public class ProductListActivity
       return true;
     }
     return super.onOptionsItemSelected(item);
+  }
+
+
+  @Override
+  public void injectPresenter(ProductListContract.Presenter presenter) {
+    this.presenter = presenter;
   }
 }
