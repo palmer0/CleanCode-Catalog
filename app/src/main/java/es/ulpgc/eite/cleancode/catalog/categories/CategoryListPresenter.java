@@ -20,6 +20,24 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
   }
 
   @Override
+  public void fetchCategoryListData() {
+    // Log.e(TAG, "fetchCategoryListData()");
+
+    // call the model
+
+    viewModel.categories = model.fetchCategoryListData();
+    view.get().displayCategoryListData(viewModel);
+
+  }
+
+  @Override
+  public void selectCategoryListData(CategoryItem item) {
+    router.passDataToProductListScreen(item);
+    router.navigateToProductListScreen();
+  }
+
+
+  @Override
   public void injectView(WeakReference<CategoryListContract.View> view) {
     this.view =view;
   }
@@ -34,22 +52,5 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     this.router = router;
   }
 
-  @Override
-  public void fetchCategoryListData() {
-    // Log.e(TAG, "fetchCategoryListData()");
-
-    // call the model
-
-    viewModel.categories = model.fetchCategoryListData();
-    view.get().displayCategoryListData(viewModel);
-
-  }
-
-
-  @Override
-  public void selectCategoryListData(CategoryItem item) {
-    router.passDataToProductListScreen(item);
-    router.navigateToProductListScreen();
-  }
 
 }

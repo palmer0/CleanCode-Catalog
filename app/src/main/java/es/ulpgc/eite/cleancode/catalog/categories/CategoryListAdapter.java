@@ -26,22 +26,6 @@ public class CategoryListAdapter extends ArrayAdapter<CategoryItem> {
     clickListener = listener;
   }
 
-
-  @Override
-  public int getCount() {
-    return itemList.size();
-  }
-
-  @Override
-  public CategoryItem getItem(int position) {
-    return itemList.get(position);
-  }
-
-  @Override
-  public long getItemId(int position) {
-    return getItem(position).id;
-  }
-
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     View itemView = convertView;
@@ -59,6 +43,22 @@ public class CategoryListAdapter extends ArrayAdapter<CategoryItem> {
     contentView.setText(itemList.get(position).content);
 
     return itemView;
+  }
+
+
+  @Override
+  public int getCount() {
+    return itemList.size();
+  }
+
+  @Override
+  public CategoryItem getItem(int position) {
+    return itemList.get(position);
+  }
+
+  @Override
+  public long getItemId(int position) {
+    return getItem(position).id;
   }
 
 

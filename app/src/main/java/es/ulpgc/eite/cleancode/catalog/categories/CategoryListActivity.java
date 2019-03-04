@@ -45,10 +45,6 @@ public class CategoryListActivity
     presenter.fetchCategoryListData();
   }
 
-  @Override
-  public void injectPresenter(CategoryListContract.Presenter presenter) {
-    this.presenter = presenter;
-  }
 
   @Override
   public void displayCategoryListData(CategoryListViewModel viewModel) {
@@ -66,6 +62,12 @@ public class CategoryListActivity
         })
     );
 
+  }
+
+
+  @Override
+  public void injectPresenter(CategoryListContract.Presenter presenter) {
+    this.presenter = presenter;
   }
 
 }
