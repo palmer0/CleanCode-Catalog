@@ -19,16 +19,7 @@ public class CategoryListScreen {
     CategoryListState state = mediator.getCategoryListState();
     RepositoryContract repository = CatalogRepository.getInstance();
 
-    /*
-    CategoryListViewModel viewModel =
-        ViewModelProviders.of(context.get()).get(CategoryListViewModel.class);
-    */
-
     CategoryListContract.Router router = new CategoryListRouter(mediator);
-    /*
-    CategoryListContract.Presenter presenter =
-        new CategoryListPresenter(viewModel, router);
-    */
     CategoryListContract.Presenter presenter=new CategoryListPresenter(state);
     CategoryListModel model = new CategoryListModel(repository);
     presenter.injectView(new WeakReference<>(view));
@@ -37,27 +28,5 @@ public class CategoryListScreen {
     view.injectPresenter(presenter);
 
   }
-  
-  /*
-  public static void configure(CategoryListActivity activity) {
 
-    CategoryListRouter router = new CategoryListRouter();
-    router.activity = new WeakReference<>(activity);
-
-    CategoryListPresenter presenter = new CategoryListPresenter();
-    presenter.viewModel =
-        ViewModelProviders.of(activity).get(CategoryListViewModel.class);
-    presenter.view = new WeakReference<CategoryListContract.View>(activity);
-    presenter.router = router;
-
-    CategoryListModel model = new CategoryListModel(new WeakReference<>(activity));
-    presenter.model = model;
-
-    if (activity.presenter == null) {
-      activity.presenter = presenter;
-    }
-
-  }
-  */
-  
 }
