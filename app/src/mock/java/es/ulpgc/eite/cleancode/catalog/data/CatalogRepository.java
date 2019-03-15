@@ -19,15 +19,6 @@ public class CatalogRepository implements RepositoryContract {
     return INSTANCE;
   }
 
-  /*
-  public static CatalogRepository getInstance() {
-    if(INSTANCE == null){
-      INSTANCE = new CatalogRepository();
-    }
-
-    return INSTANCE;
-  }
-  */
 
   private CatalogRepository() {
     // Add some sample items.
@@ -59,7 +50,6 @@ public class CatalogRepository implements RepositoryContract {
     itemList.add(item);
   }
 
-
   private void addProduct(List<ProductItem> itemList, ProductItem item) {
     itemList.add(item);
   }
@@ -75,13 +65,7 @@ public class CatalogRepository implements RepositoryContract {
 
   }
 
-
   private CategoryItem createCategory(int position) {
-    /*
-    CategoryItem item = new CategoryItem(
-        position, "Category " + position, fetchCategoryDetails(position)
-    );
-    */
 
     CategoryItem item = new CategoryItem(
         position, "Category " + position
@@ -93,19 +77,6 @@ public class CatalogRepository implements RepositoryContract {
 
     return item;
   }
-
-  /*
-  private String fetchCategoryDetails(int position) {
-    StringBuilder builder = new StringBuilder();
-    builder.append("Details about Category: ").append(position);
-
-    for (int index = 0; index < position; index++) {
-      builder.append("\nMore details information here.");
-    }
-
-    return builder.toString();
-  }
-  */
 
   private String fetchProductDetails(int id, int position) {
     String content = "Details about Product:  " + id + "." + position;

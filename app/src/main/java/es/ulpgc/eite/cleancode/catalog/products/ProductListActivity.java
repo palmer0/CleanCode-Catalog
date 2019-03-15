@@ -22,7 +22,6 @@ public class ProductListActivity
 
   ProductListContract.Presenter presenter;
 
-  //private RecyclerView recyclerView;
   private ListView listView;
   private ActionBar actionBar;
 
@@ -40,7 +39,6 @@ public class ProductListActivity
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    //recyclerView = findViewById(R.id.product_list);
     listView = findViewById(R.id.product_list);
 
     // do the setup
@@ -50,10 +48,6 @@ public class ProductListActivity
     presenter.fetchProductListData();
   }
 
-  @Override
-  public void injectPresenter(ProductListContract.Presenter presenter) {
-    this.presenter = presenter;
-  }
 
   @Override
   public void displayProductListData(ProductListViewModel viewModel) {
@@ -76,18 +70,6 @@ public class ProductListActivity
         })
     );
 
-    /*
-    recyclerView.setAdapter(
-        new ProductListAdapter(viewModel.products, new View.OnClickListener() {
-
-          @Override
-          public void onClick(View view) {
-            ProductItem item = (ProductItem) view.getTag();
-            presenter.selectProductListData(item);
-          }
-        })
-    );
-    */
   }
 
   @Override
@@ -98,5 +80,11 @@ public class ProductListActivity
       return true;
     }
     return super.onOptionsItemSelected(item);
+  }
+
+
+  @Override
+  public void injectPresenter(ProductListContract.Presenter presenter) {
+    this.presenter = presenter;
   }
 }

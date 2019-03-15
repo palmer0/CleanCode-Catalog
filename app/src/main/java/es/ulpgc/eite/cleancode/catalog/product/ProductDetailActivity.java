@@ -21,7 +21,6 @@ public class ProductDetailActivity
 
   ProductDetailContract.Presenter presenter;
 
-  //private CollapsingToolbarLayout appBarLayout;
   private ActionBar actionBar;
 
   @Override
@@ -33,12 +32,9 @@ public class ProductDetailActivity
 
     // Show the Up button in the action bar.
     actionBar = getSupportActionBar();
-    //ActionBar actionBar = getSupportActionBar();
     if (actionBar != null) {
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
-
-    //appBarLayout = findViewById(R.id.toolbar_layout);
 
     // do the setup
     ProductDetailScreen.configure(this);
@@ -63,12 +59,6 @@ public class ProductDetailActivity
       if (actionBar != null) {
         actionBar.setTitle(product.content);
       }
-
-      /*
-      if (appBarLayout != null) {
-        appBarLayout.setTitle(product.content);
-      }
-      */
 
       ((TextView) findViewById(R.id.product_detail)).setText(product.details);
     }

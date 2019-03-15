@@ -13,12 +13,9 @@ import es.ulpgc.eite.cleancode.catalog.R;
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 
 public class CategoryListAdapter extends ArrayAdapter<CategoryItem> {
-    //extends RecyclerView.Adapter<CategoryListAdapter.ViewHolder> {
 
   private final List<CategoryItem> itemList;
   private final View.OnClickListener clickListener;
-
-
 
 
   public CategoryListAdapter(
@@ -29,14 +26,25 @@ public class CategoryListAdapter extends ArrayAdapter<CategoryItem> {
     clickListener = listener;
   }
 
-  /*
-  public CategoryListAdapter(
-      List<CategoryItem> items, View.OnClickListener listener) {
+  @Override
+  public View getView(int position, View convertView, ViewGroup parent) {
+    View itemView = convertView;
 
-    itemList = items;
-    clickListener = listener;
+    if(itemView == null) {
+      itemView = LayoutInflater
+          .from(parent.getContext())
+          .inflate(R.layout.category_list_content, parent, false);
+    }
+
+    itemView.setTag(itemList.get(position));
+    itemView.setOnClickListener(clickListener);
+
+    final TextView contentView = itemView.findViewById(R.id.content);
+    contentView.setText(itemList.get(position).content);
+
+    return itemView;
   }
-  */
+
 
   @Override
   public int getCount() {
@@ -53,55 +61,5 @@ public class CategoryListAdapter extends ArrayAdapter<CategoryItem> {
     return getItem(position).id;
   }
 
-  @Override
-  public View getView(int position, View convertView, ViewGroup parent) {
-    View itemView = convertView;
 
-    if(itemView == null) {
-      itemView = LayoutInflater
-          .from(parent.getContext())
-          .inflate(R.layout.category_list_content, parent, false);
-    }
-
-    itemView.setTag(itemList.get(position));
-    itemView.setOnClickListener(clickListener);
-
-    //CategoryItem item = getItem(position);
-
-    final TextView contentView = itemView.findViewById(R.id.content);
-    contentView.setText(itemList.get(position).content);
-
-    return itemView;
-  }
-
-  /*
-  @Override
-  public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext())
-        .inflate(R.layout.category_list_content, parent, false);
-    return new ViewHolder(view);
-  }
-
-  @Override
-  public void onBindViewHolder(final ViewHolder holder, int position) {
-    holder.contentView.setText(itemList.get(position).content);
-
-    holder.itemView.setTag(itemList.get(position));
-    holder.itemView.setOnClickListener(clickListener);
-  }
-
-  @Override
-  public int getItemCount() {
-    return itemList.size();
-  }
-
-  class ViewHolder extends RecyclerView.ViewHolder {
-    final TextView contentView;
-
-    ViewHolder(View view) {
-      super(view);
-      contentView = view.findViewById(R.id.content);
-    }
-  }
-  */
 }

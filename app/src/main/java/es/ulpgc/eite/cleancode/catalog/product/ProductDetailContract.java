@@ -21,13 +21,11 @@ interface ProductDetailContract {
   }
 
   interface Model {
-    //ProductItem fetchProductDetailData();
+
   }
 
   interface Router {
 
-    void navigateToNextScreen();
-    //void passDataToNextScreen(String data);
     ProductItem getDataFromProductListScreen();
   }
 }

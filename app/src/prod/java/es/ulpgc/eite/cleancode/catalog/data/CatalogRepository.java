@@ -78,7 +78,6 @@ public class CatalogRepository implements RepositoryContract {
   private static CatalogRepository INSTANCE;
 
   private final List<CategoryItem> itemList = new ArrayList<>();
-  //private final int COUNT = 20;
 
   public static RepositoryContract getInstance() {
     if(INSTANCE == null){
@@ -88,16 +87,6 @@ public class CatalogRepository implements RepositoryContract {
     return INSTANCE;
   }
 
-  /*
-  public static CatalogRepository getInstance() {
-    if(INSTANCE == null){
-      INSTANCE = new CatalogRepository();
-    }
-
-    return INSTANCE;
-  }
-  */
-
   private CatalogRepository() {
     // Add some sample items.
     for (int index = 0; index < categories.size(); index++) {
@@ -106,16 +95,8 @@ public class CatalogRepository implements RepositoryContract {
   }
 
   private CategoryItem createCategory(int position) {
-    /*
-    CategoryItem item = new CategoryItem(
-        position, "Category " + position, fetchCategoryDetails(position)
-    );
-    */
 
-    CategoryItem item = new CategoryItem(
-        //position, "Category " + position
-        position, categories.get(position)
-    );
+    CategoryItem item = new CategoryItem(position, categories.get(position));
 
     for (int index = 0; index <  products.get(position).size(); index++) {
       addProduct(item.items, createProduct(item.id, index));
@@ -126,29 +107,13 @@ public class CatalogRepository implements RepositoryContract {
 
 
   private ProductItem createProduct(int index, int position) {
-    //String content = "Product " + index + "." + position;
     String content = products.get(index).get(position);
 
     return new ProductItem(
-        //position, content, fetchProductDetails(index, position)
         position, content, details.get(index).get(position)
     );
 
   }
-
-  /*
-  private String fetchProductDetails(int index, int position) {
-    String content = "Details about Product:  " + index + "." + position;
-    StringBuilder builder = new StringBuilder();
-    builder.append(content);
-
-    for (int pos = 0; pos < position; pos++) {
-      builder.append("\nMore details information here.");
-    }
-
-    return builder.toString();
-  }
-  */
 
 
   @Override
@@ -178,21 +143,5 @@ public class CatalogRepository implements RepositoryContract {
   private void addProduct(List<ProductItem> itemList, ProductItem item) {
     itemList.add(item);
   }
-
-
-  /*
-  private String fetchCategoryDetails(int position) {
-    StringBuilder builder = new StringBuilder();
-    builder.append("Details about Category: ").append(position);
-
-    for (int index = 0; index < position; index++) {
-      builder.append("\nMore details information here.");
-    }
-
-    return builder.toString();
-  }
-  */
-
-
 
 }

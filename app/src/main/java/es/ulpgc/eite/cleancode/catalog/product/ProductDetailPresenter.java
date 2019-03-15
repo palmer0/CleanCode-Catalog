@@ -9,32 +9,10 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
   public static String TAG = ProductDetailPresenter.class.getSimpleName();
 
-  /*
-  public WeakReference<ProductDetailContract.View> view;
-  public ProductDetailViewModel viewModel;
-  public ProductDetailContract.Model model;
-  public ProductDetailRouter router;
-  */
-
   private WeakReference<ProductDetailContract.View> view;
   private ProductDetailViewModel viewModel;
   private ProductDetailContract.Model model;
   private ProductDetailContract.Router router;
-
-  /*
-  public ProductDetailPresenter(
-      ProductDetailViewModel viewModel, ProductDetailContract.Router router) {
-
-    this.viewModel = viewModel;
-    this.router = router;
-  }
-  */
-
-//  public ProductDetailPresenter(WeakReference<FragmentActivity> context) {
-//    viewModel = ViewModelProviders
-//        .of(context.get())
-//        .get(ProductDetailViewModel.class);
-//  }
 
   public ProductDetailPresenter(ProductDetailState state) {
     viewModel = state;
@@ -65,15 +43,7 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         viewModel.product = product;
     }
 
-    /*
-    // call the model
-    ProductItem item = model.fetchProductDetailData();
-    viewModel.item = item;
-    */
-
     view.get().displayProductDetailData(viewModel);
-
   }
-
 
 }
