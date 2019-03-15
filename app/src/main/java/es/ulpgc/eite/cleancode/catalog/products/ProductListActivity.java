@@ -22,8 +22,9 @@ public class ProductListActivity
 
   ProductListContract.Presenter presenter;
 
-  private ListView listView;
+  //private ListView listView;
   private ActionBar actionBar;
+  private ProductListAdapter listAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,18 @@ public class ProductListActivity
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    listView = findViewById(R.id.product_list);
+    listAdapter = new ProductListAdapter(this, new View.OnClickListener() {
+
+      @Override
+      public void onClick(View view) {
+        ProductItem item = (ProductItem) view.getTag();
+        presenter.selectProductListData(item);
+      }
+    });
+
+    ListView listView = findViewById(R.id.product_list);
+    //listView = findViewById(R.id.product_list);
+    listView.setAdapter(listAdapter);
 
     // do the setup
     ProductListScreen.configure(this);
@@ -54,11 +66,15 @@ public class ProductListActivity
     Log.e(TAG, "displayProductListData()");
 
     // deal with the data
+    listAdapter.setItems(viewModel.products);
+
     CategoryItem category = viewModel.category;
     if (actionBar != null) {
       actionBar.setTitle(category.content);
     }
 
+
+    /*
     listView.setAdapter(new ProductListAdapter(
         this, viewModel.products, new View.OnClickListener() {
 
@@ -69,7 +85,7 @@ public class ProductListActivity
           }
         })
     );
-
+    */
   }
 
   @Override

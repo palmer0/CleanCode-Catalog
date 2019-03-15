@@ -19,8 +19,8 @@ public class CategoryListActivity
 
   CategoryListContract.Presenter presenter;
 
-  private ListView listView;
-
+  //private ListView listView;
+  private CategoryListAdapter listAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,31 @@ public class CategoryListActivity
       actionBar.setTitle(R.string.app_name);
     }
 
-    listView = findViewById(R.id.category_list);
+    listAdapter = new CategoryListAdapter(this, new View.OnClickListener() {
+
+      @Override
+      public void onClick(View view) {
+        CategoryItem item = (CategoryItem) view.getTag();
+        presenter.selectCategoryListData(item);
+      }
+    });
+
+    ListView listView = findViewById(R.id.category_list);
+    //listView = findViewById(R.id.category_list);
+    listView.setAdapter(listAdapter);
+
+    /*
+    listView.setAdapter(
+        new CategoryListAdapter(this, new View.OnClickListener() {
+
+          @Override
+          public void onClick(View view) {
+            CategoryItem item = (CategoryItem) view.getTag();
+            presenter.selectCategoryListData(item);
+          }
+        })
+    );
+    */
 
     // do the setup
     CategoryListScreen.configure(this);
@@ -51,6 +75,10 @@ public class CategoryListActivity
     Log.e(TAG, "displayCategoryListData()");
 
     // deal with the data
+    listAdapter.setItems(viewModel.categories);
+    //((CategoryListAdapter) listView.getAdapter()).setItems(viewModel.categories);
+
+    /*
     listView.setAdapter(new CategoryListAdapter(
         this, viewModel.categories, new View.OnClickListener() {
 
@@ -61,7 +89,7 @@ public class CategoryListActivity
           }
         })
     );
-
+    */
   }
 
 
