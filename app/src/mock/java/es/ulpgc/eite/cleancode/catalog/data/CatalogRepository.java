@@ -9,7 +9,7 @@ public class CatalogRepository implements RepositoryContract {
   private static CatalogRepository INSTANCE;
 
   private final List<CategoryItem> itemList = new ArrayList<>();
-  private final int COUNT = 20;
+  private final int COUNT = 10;
 
   public static RepositoryContract getInstance() {
     if(INSTANCE == null){
@@ -30,7 +30,7 @@ public class CatalogRepository implements RepositoryContract {
   @Override
   public List<ProductItem> getProductList(int id) {
     for (int index = 1; index <= COUNT; index++) {
-      CategoryItem item = itemList.get(index);
+      CategoryItem item = itemList.get(index-1);
 
       if(item.id == id) {
         return item.items;
