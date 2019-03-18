@@ -9,7 +9,7 @@ public class CatalogRepository implements RepositoryContract {
   private static CatalogRepository INSTANCE;
 
   private final List<CategoryItem> itemList = new ArrayList<>();
-  private final int COUNT = 10;
+  private final int COUNT = 20;
 
   public static RepositoryContract getInstance() {
     if(INSTANCE == null){
