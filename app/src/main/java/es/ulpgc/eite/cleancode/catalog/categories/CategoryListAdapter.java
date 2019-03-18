@@ -38,14 +38,17 @@ public class CategoryListAdapter extends ArrayAdapter<CategoryItem> {
 
   public void addItem(CategoryItem item){
     itemList.add(item);
+    notifyDataSetChanged();
   }
 
   public void addItems(List<CategoryItem> items){
     itemList.addAll(items);
+    notifyDataSetChanged();
   }
 
   public void setItems(List<CategoryItem> items){
     itemList = items;
+    notifyDataSetChanged();
   }
 
   @Override

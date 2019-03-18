@@ -59,14 +59,17 @@ public class ProductListAdapter extends ArrayAdapter<ProductItem> {
 
   public void addItem(ProductItem item){
     itemList.add(item);
+    notifyDataSetChanged();
   }
 
   public void addItems(List<ProductItem> items){
     itemList.addAll(items);
+    notifyDataSetChanged();
   }
 
   public void setItems(List<ProductItem> items){
     itemList = items;
+    notifyDataSetChanged();
   }
 
   @Override
