@@ -11,12 +11,12 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
 
   private WeakReference<CategoryListContract.View> view;
-  private CategoryListViewModel viewModel;
+  private CategoryListState state;
   private CategoryListContract.Model model;
   private CategoryListContract.Router router;
 
   public CategoryListPresenter(CategoryListState state) {
-    viewModel = state;
+    this.state = state;
   }
 
   @Override
@@ -25,8 +25,8 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
     // call the model
 
-    viewModel.categories = model.fetchCategoryListData();
-    view.get().displayCategoryListData(viewModel);
+    state.categories = model.fetchCategoryListData();
+    view.get().displayCategoryListData(state);
 
   }
 
