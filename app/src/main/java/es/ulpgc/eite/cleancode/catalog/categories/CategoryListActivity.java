@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
 import es.ulpgc.eite.cleancode.catalog.products.ProductListActivity;
 
@@ -66,9 +65,11 @@ public class CategoryListActivity
     );
     */
 
+    /*
     if(savedInstanceState == null) {
       CatalogMediator.resetInstance();
     }
+    */
 
     // do the setup
     CategoryListScreen.configure(this);

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import es.ulpgc.eite.cleancode.catalog.R;
-import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
 import es.ulpgc.eite.cleancode.catalog.data.ProductItem;
 import es.ulpgc.eite.cleancode.catalog.products.ProductListActivity;
 
@@ -38,9 +37,11 @@ public class ProductDetailActivity
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
+    /*
     if(savedInstanceState == null) {
       CatalogMediator.resetInstance();
     }
+    */
 
     // do the setup
     ProductDetailScreen.configure(this);
