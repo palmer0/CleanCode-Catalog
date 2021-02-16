@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.catalog.categories;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import es.ulpgc.eite.cleancode.catalog.R;
+import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
 import es.ulpgc.eite.cleancode.catalog.data.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.products.ProductListActivity;
 
 
 public class CategoryListActivity
@@ -63,11 +66,21 @@ public class CategoryListActivity
     );
     */
 
+    if(savedInstanceState == null) {
+      CatalogMediator.resetInstance();
+    }
+
     // do the setup
     CategoryListScreen.configure(this);
 
     // do some work
     presenter.fetchCategoryListData();
+  }
+
+  @Override
+  public void navigateToProductListScreen() {
+    Intent intent = new Intent(this, ProductListActivity.class);
+    startActivity(intent);
   }
 
 
